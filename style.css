@@ -1,0 +1,188 @@
+/* Archetype 2: Desktop Sticky Sidebar App Shell (nexitallycloud.mom) */
+:root {
+  --primary: #10b981;
+  --secondary: #06b6d4;
+  --accent: #6ee7b7;
+  --bg: #060e10;
+  --sidebar-bg: #0b181b;
+  --panel-bg: #0f2227;
+  --border: #1a3c44;
+  --text: #ecfdf5;
+  --muted: #85a8a1;
+  --link-color: #6ee7b7;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; }
+a { color: var(--link-color); text-decoration: none; }
+a:visited { color: var(--link-color); }
+a:hover { color: var(--primary); text-decoration: underline; }
+
+/* App Layout Grid: Left Sidebar 280px + Right Content Area */
+.app-container { display: flex; min-height: 100vh; }
+.app-sidebar { width: 280px; background: var(--sidebar-bg); border-right: 1px solid var(--border); padding: 32px 24px; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: space-between; flex-shrink: 0; }
+.app-main { flex-grow: 1; padding: 40px; max-width: 1100px; }
+
+/* Sidebar Elements */
+.app-brand { font-size: 24px; font-weight: 900; color: var(--text); display: flex; align-items: center; gap: 10px; margin-bottom: 36px; text-decoration: none !important; }
+.app-brand-badge { width: 36px; height: 36px; background: var(--primary); border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; color: #042f2e; font-weight: 900; }
+.app-menu { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.app-menu li a { display: block; padding: 12px 16px; border-radius: 10px; color: var(--muted); font-size: 15px; font-weight: 600; }
+.app-menu li a:hover, .app-menu li a.active { background: rgba(16, 185, 129, 0.12); color: var(--accent); text-decoration: none; }
+.app-sidebar-footer { border-top: 1px solid var(--border); padding-top: 20px; font-size: 13px; color: var(--muted); }
+
+/* Right Area: Contained Banner Hero */
+.app-banner-hero { background: linear-gradient(135deg, var(--panel-bg), #081619); border: 1px solid var(--border); border-radius: 20px; padding: 48px; display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 40px; margin-bottom: 40px; }
+.app-hero-tag { font-size: 12px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; }
+.app-hero-title { font-size: 40px; font-weight: 900; line-height: 1.2; margin-bottom: 16px; }
+.app-hero-title span { color: var(--primary); }
+.app-hero-desc { font-size: 16px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+.app-hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-app-primary { background: var(--primary); color: #042f2e !important; padding: 12px 24px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none !important; }
+.btn-app-outline { border: 1px solid var(--accent); color: var(--accent) !important; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none !important; }
+
+/* Dense Matrix Grid */
+.matrix-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+.matrix-item { background: var(--panel-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.matrix-label { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.matrix-value { font-size: 18px; font-weight: 800; color: var(--text); }
+
+/* Horizontal Comparison Table for Pricing */
+.table-card { background: var(--panel-bg); border: 1px solid var(--border); border-radius: 18px; padding: 32px; margin-bottom: 40px; }
+.table-header { margin-bottom: 24px; }
+.table-title { font-size: 24px; font-weight: 800; }
+.app-table { width: 100%; border-collapse: collapse; text-align: left; }
+.app-table th { padding: 16px; border-bottom: 2px solid var(--border); color: var(--accent); font-size: 15px; font-weight: 700; }
+.app-table td { padding: 16px; border-bottom: 1px solid var(--border); font-size: 14px; color: var(--muted); }
+.app-table tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+/* App Bottom Strip */
+.app-strip-footer { border-top: 1px solid var(--border); padding-top: 24px; display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .app-container { flex-direction: column; }
+  .app-sidebar { width: 100%; height: auto; position: static; padding: 20px; }
+  .app-menu { flex-direction: row; flex-wrap: wrap; }
+  .app-banner-hero { grid-template-columns: 1fr; padding: 24px; }
+  .matrix-grid { grid-template-columns: repeat(2, 1fr); }
+  .app-main { padding: 20px; }
+}
+
+
+/* ==========================================================================
+   Hero SVG Motion Core & Animation Keyframes (Guaranteed Visibility)
+   ========================================================================== */
+.motion-art-frame {
+  width: 100% !important;
+  max-width: 480px !important;
+  min-height: 280px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  position: relative !important;
+  flex-shrink: 0 !important;
+}
+
+.motion-svg {
+  width: 100% !important;
+  max-width: 480px !important;
+  height: auto !important;
+  min-height: 260px !important;
+  display: block !important;
+  overflow: visible !important;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.65)) !important;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes creamBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes berryFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(4deg); }
+}
+
+@keyframes strawShake {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-2.5deg); }
+}
+
+@keyframes bubbleFloat {
+  0% { transform: translateY(0); opacity: 0.25; }
+  50% { opacity: 0.9; }
+  100% { transform: translateY(-24px); opacity: 0; }
+}
+
+@keyframes ringFloat {
+  0%, 100% { transform: translateY(0) rotate(-12deg); }
+  50% { transform: translateY(-10px) rotate(-8deg); }
+}
+
+@keyframes runeShimmer {
+  0%, 100% { opacity: 0.35; stroke-dashoffset: 0; }
+  50% { opacity: 1; stroke-dashoffset: 24; }
+}
+
+@keyframes spinCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCCW {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes stepPulse {
+  0%, 100% { opacity: 0.7; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-4px); }
+}
+
+@keyframes cloudDrift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(16px); }
+}
+
+@keyframes rayAscend {
+  0% { stroke-dashoffset: 20; opacity: 0.2; }
+  50% { opacity: 0.95; }
+  100% { stroke-dashoffset: 0; opacity: 0.2; }
+}
+
+.glow-pulse { animation: glowPulse 4s ease-in-out infinite; transform-origin: center; }
+.cream-bounce { animation: creamBounce 3.5s ease-in-out infinite; }
+.berry-float { animation: berryFloat 3s ease-in-out infinite; transform-origin: 230px 85px; }
+.straw-shake { animation: strawShake 4s ease-in-out infinite; transform-origin: 210px 250px; }
+.bubble-float-1 { animation: bubbleFloat 3s ease-in-out infinite; }
+.bubble-float-2 { animation: bubbleFloat 4.2s ease-in-out infinite 0.8s; }
+.bubble-float-3 { animation: bubbleFloat 3.6s ease-in-out infinite 1.5s; }
+
+.ring-float { animation: ringFloat 5s ease-in-out infinite; }
+.rune-shimmer { animation: runeShimmer 3s ease-in-out infinite; }
+.orbital-spin { animation: spinCW 25s linear infinite; transform-origin: 230px 180px; }
+.ring-spin-cw { animation: spinCW 18s linear infinite; transform-origin: 230px 180px; }
+.ring-spin-ccw { animation: spinCCW 24s linear infinite; transform-origin: 230px 180px; }
+
+.step-pulse-1 { animation: stepPulse 3s ease-in-out infinite 0s; }
+.step-pulse-2 { animation: stepPulse 3s ease-in-out infinite 0.7s; }
+.step-pulse-3 { animation: stepPulse 3s ease-in-out infinite 1.4s; }
+.step-pulse-4 { animation: stepPulse 3s ease-in-out infinite 2.1s; }
+.cloud-drift-1 { animation: cloudDrift 6s ease-in-out infinite; }
+.cloud-drift-2 { animation: cloudDrift 7s ease-in-out infinite 1s; }
+.ray-ascend { animation: rayAscend 2.5s linear infinite; }
+.crystal-spin { animation: spinCW 12s linear infinite; transform-origin: center; }
+.mint-leaf-float { animation: berryFloat 4s ease-in-out infinite; transform-origin: 230px 95px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
