@@ -18,6 +18,7 @@
 <meta name="twitter:description" content="围绕奶昔 Nexitally的家庭连接与流量预算整理实用资料。按自己的设备、使用场景与预算核对服务条件，再查看外部购买页面的具体商品和条款。">
 <script id="landing-maintenance-schema" type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "奶昔 Nexitally机场｜家庭连接与流量预算", "url": "https://nexitallycloud.mom/", "inLanguage": "zh-CN"}</script>
 <link rel="stylesheet" href="landing-maintenance.css">
+<style id="maintenance-anchor-offset">#compare{scroll-margin-top:180px;}</style>
 </head>
 <body>
 
@@ -54,7 +55,7 @@
           <p class="app-hero-desc">多区域智能动态选路，抗抖动低丢包，赋予跨国远程协同、学术调研与影音娱乐全新流畅体验。</p>
           <div class="app-hero-btns">
             <a href="https://ww012.twilightaff.com/#/?code=A56DH1Af" class="btn-app-primary" target="_blank" rel="nofollow noopener sponsored">查看购买选项</a>
-            <a href="#plans" class="btn-app-outline" target="_blank">查看套餐资费</a>
+            <a href="#compare" class="btn-app-outline">查看套餐资费</a>
           </div>
         </div>
         <div style="display:flex; justify-content:center;">
@@ -201,5 +202,23 @@
     </main>
   </div>
 
+<script id="maintenance-anchor-offset-script">
+(() => {
+  const targets = ["compare"];
+  const headers = [...document.querySelectorAll('header,nav,[class*="nav"],[class*="header"]')];
+  const update = () => {
+    const height = Math.max(0, ...headers.map(el => {
+      const box = el.getBoundingClientRect();
+      const position = getComputedStyle(el).position;
+      return ['fixed','sticky'].includes(position) && box.width > innerWidth / 2 && box.height < 400 ? box.height : 0;
+    }));
+    targets.forEach(id => { const el = document.getElementById(id); if (el) el.style.scrollMarginTop = Math.ceil(height + 16) + 'px'; });
+  };
+  update();
+  addEventListener('resize', update, {passive: true});
+  if ('ResizeObserver' in window) { const observer = new ResizeObserver(update); headers.forEach(el => observer.observe(el)); }
+  if (document.fonts) document.fonts.ready.then(update);
+})();
+</script>
 </body>
 </html>
